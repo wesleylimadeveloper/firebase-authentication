@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Firebase",
-    "slug": "Firebase",
+    "name": "FirebaseAuthentication",
+    "slug": "FirebaseAuthentication",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
