@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Alert, StyleSheet, View } from 'react-native';
+import { Alert, SafeAreaView, StyleSheet, View } from 'react-native';
 import Logo from '../components/Logo';
 import Input from '../components/Input';
 import BotaoPrincipal from '../components/BotaoPrincipal';
@@ -65,35 +65,54 @@ export default function LoginScreen({ navigation }) {
     }
 
     return (
-        <View style={styles.container}>
-            <Logo />
-            <Input
-                placeholder="E-mail"
-                onChangeText={(txtEmail) => setEmail(txtEmail)}
-                value={email}
-            />
-            <Input
-                placeholder="Senha"
-                secureTextEntry={true}
-                onChangeText={(txtPassword) => setPassword(txtPassword)}
-                value={password}
-            />
-            <BotaoPrincipal
-                onPress={entrar}
-                title="Entrar"
-            />
-            <BotaoSecundario
-                onPress={() => navigation.navigate("RegisterScreen")}
-                title="Cadastrar"
-            />
-        </View>
+        <SafeAreaView style={styles.container}>
+            <View style={styles.logoView}>
+                <Logo />
+            </View>
+            <View style={styles.inputsView}>
+                <Input
+                    placeholder="E-mail"
+                    onChangeText={(txtEmail) => setEmail(txtEmail)}
+                    value={email}
+                />
+                <Input
+                    placeholder="Senha"
+                    secureTextEntry={true}
+                    onChangeText={(txtPassword) => setPassword(txtPassword)}
+                    value={password}
+                />
+            </View>
+            <View style={styles.buttonsView}>
+                <BotaoPrincipal
+                    onPress={entrar}
+                    title="ENTRAR"
+                />
+                <BotaoSecundario
+                    onPress={() => navigation.navigate("RegisterScreen")}
+                    title="CRIAR CONTA"
+                />
+            </View>
+        </SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
+        backgroundColor: '#6BBAF2',
         alignItems: 'center',
         flex: 1,
-        justifyContent: 'center',
+    },
+    logoView: {
+        marginBottom: 15,
+        marginTop: 50,
+    },
+    inputsView: {
+        height: 100,
+        justifyContent: 'space-around',
+        marginBottom: 5,
+    },
+    buttonsView: {
+        height: 100,
+        justifyContent: 'space-around',
     },
 });

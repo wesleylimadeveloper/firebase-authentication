@@ -11,12 +11,10 @@ export default (props) => {
 
 const styles = StyleSheet.create({
     botao: {
-        backgroundColor: 'black',
+        backgroundColor: '#3878A6',
         borderRadius: 5,
-        borderWidth: 1,
         height: 40,
         padding: 8,
-        marginBottom: 15,
         width: 300,
     },
     textoBotao: {

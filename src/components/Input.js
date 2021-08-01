@@ -7,6 +7,7 @@ export default (props) => {
             style={styles.input}
             onChangeText={props.onChangeText} 
             placeholder={props.placeholder}
+            placeholderTextColor='#FFF'
             secureTextEntry={props.secureTextEntry} 
             value={props.value}  
         />
@@ -15,11 +16,12 @@ export default (props) => {
 
 const styles = StyleSheet.create({
     input: {
+        borderColor: '#FFF',
         borderRadius: 5,
         borderWidth: 1,
+        color: '#FFF',
         fontSize: 16,
         height: 40,
-        marginBottom: 15,
         padding: 8,
         textAlign: 'center',
         width: 300,

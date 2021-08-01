@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Alert, StyleSheet, Text, View } from 'react-native';
+import { Alert, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import Input from '../components/Input';
 import BotaoPrincipal from '../components/BotaoPrincipal';
 import BotaoSecundario from '../components/BotaoSecundario';
@@ -55,41 +55,56 @@ export default function RegisterScreen({ navigation }) {
     }
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.text}>Cadastre-se</Text>
-            <Input
-                onChangeText={(txtEmail) => setEmail(txtEmail)}
-                placeholder="E-mail"
-                value={email}
-            />
-            <Input
-                onChangeText={(txtPassword) => setPassword(txtPassword)}
-                placeholder="Senha"
-                secureTextEntry={true}
-                value={password}
-            />
-            <BotaoPrincipal
-                onPress={cadastrar}
-                title="Cadastrar"
-            />
-            <BotaoSecundario
-                onPress={() => navigation.navigate("LoginScreen")}
-                title="Já sou cadastrado"
-            />
-        </View>
+        <SafeAreaView style={styles.container}>
+            <Text style={styles.texto}>Criar Conta</Text>
+            <View style={styles.inputsView}>
+                <Input
+                    onChangeText={(txtEmail) => setEmail(txtEmail)}
+                    placeholder="E-mail"
+                    value={email}
+                />
+                <Input
+                    onChangeText={(txtPassword) => setPassword(txtPassword)}
+                    placeholder="Senha"
+                    secureTextEntry={true}
+                    value={password}
+                />
+            </View>
+            <View style={styles.buttonsView}>
+                <BotaoPrincipal
+                    onPress={cadastrar}
+                    title="CADASTRAR"
+                />
+                <BotaoSecundario
+                    onPress={() => navigation.navigate("LoginScreen")}
+                    title="JÁ SOU CADASTRADO"
+                />
+            </View>
+        </SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
+        backgroundColor: '#6BBAF2',
         flex: 1,
-        justifyContent: 'center',
     },
-    text: {
+    texto: {
+        color: '#FFF',
         fontSize: 40,
         fontWeight: 'bold',
-        margin: 40,
+        marginBottom: 5,
+        marginTop: 200,
         textAlign: 'center',
+    },
+    inputsView: {
+        height: 100,
+        justifyContent: 'space-around',
+        marginBottom: 5,
+    },
+    buttonsView: {
+        height: 100,
+        justifyContent: 'space-around',
     },
 });

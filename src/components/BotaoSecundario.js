@@ -11,16 +11,14 @@ export default (props) => {
 
 const styles = StyleSheet.create({
     botao: {
-        backgroundColor: 'white',
+        backgroundColor: '#8ACEFF',
         borderRadius: 5,
-        borderWidth: 1,
         height: 40,
         padding: 8,
-        marginBottom: 15,
         width: 300,
     },
     textoBotao: {
-        color: 'black',
+        color: '#FFF',
         fontSize: 16,
         fontWeight: 'bold',
         textAlign: 'center',
