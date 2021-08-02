@@ -2,8 +2,17 @@ import React from 'react';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import Logo from '../components/Logo';
 import BotaoPrincipal from '../components/BotaoPrincipal';
+import firebase from '../firebaseDB/FirebaseConfig';
 
 export default function HomeScreen({ navigation }) {
+
+    const sair = () => {
+        firebase
+            .auth()
+            .signOut()
+            .then(() => navigation.navigate("LoginScreen"))
+    }
+
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.logoView}>
@@ -11,7 +20,7 @@ export default function HomeScreen({ navigation }) {
             </View>
             <Text style={styles.texto}>Seja bem-vindo(a)!</Text>
             <BotaoPrincipal
-                onPress={() => navigation.navigate("LoginScreen")}
+                onPress={sair}
                 title="SAIR"
             />
         </SafeAreaView>
