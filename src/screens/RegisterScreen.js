@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
-import { Alert, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { Alert, StatusBar, StyleSheet, Text, View } from 'react-native';
 import Input from '../components/Input';
 import BotaoPrincipal from '../components/BotaoPrincipal';
 import BotaoSecundario from '../components/BotaoSecundario';
 import firebase from '../firebaseDB/FirebaseConfig';
 
 export default function RegisterScreen({ navigation }) {
-
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
     const cadastrar = () => {
         try {
             firebase
@@ -55,7 +53,8 @@ export default function RegisterScreen({ navigation }) {
     }
 
     return (
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
+            <StatusBar backgroundColor="#3878A6" barStyle="light-content" />
             <Text style={styles.texto}>Criar Conta</Text>
             <View style={styles.inputsView}>
                 <Input
@@ -80,7 +79,7 @@ export default function RegisterScreen({ navigation }) {
                     title="JÁ SOU CADASTRADO"
                 />
             </View>
-        </SafeAreaView>
+        </View>
     );
 }
 
@@ -89,13 +88,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#6BBAF2',
         flex: 1,
+        justifyContent: 'center',
     },
     texto: {
         color: '#FFF',
         fontSize: 40,
         fontWeight: 'bold',
         marginBottom: 5,
-        marginTop: 200,
         textAlign: 'center',
     },
     inputsView: {

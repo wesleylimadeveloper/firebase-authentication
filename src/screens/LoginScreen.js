@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Alert, SafeAreaView, StyleSheet, View } from 'react-native';
+import { Alert, StatusBar, StyleSheet, View } from 'react-native';
 import Logo from '../components/Logo';
 import Input from '../components/Input';
 import BotaoPrincipal from '../components/BotaoPrincipal';
@@ -7,10 +7,8 @@ import BotaoSecundario from '../components/BotaoSecundario';
 import firebase from '../firebaseDB/FirebaseConfig';
 
 export default function LoginScreen({ navigation }) {
-
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
     const entrar = () => {
         try {
             firebase
@@ -65,7 +63,8 @@ export default function LoginScreen({ navigation }) {
     }
 
     return (
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
+            <StatusBar backgroundColor="#3878A6" barStyle="light-content" />
             <View style={styles.logoView}>
                 <Logo />
             </View>
@@ -92,7 +91,7 @@ export default function LoginScreen({ navigation }) {
                     title="CRIAR CONTA"
                 />
             </View>
-        </SafeAreaView>
+        </View>
     );
 }
 
@@ -101,10 +100,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#6BBAF2',
         alignItems: 'center',
         flex: 1,
+        justifyContent: 'center',
     },
     logoView: {
         marginBottom: 15,
-        marginTop: 50,
     },
     inputsView: {
         height: 100,

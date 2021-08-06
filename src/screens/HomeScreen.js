@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { StatusBar, StyleSheet, Text, View } from 'react-native';
 import Logo from '../components/Logo';
 import BotaoPrincipal from '../components/BotaoPrincipal';
 import firebase from '../firebaseDB/FirebaseConfig';
@@ -14,7 +14,8 @@ export default function HomeScreen({ navigation }) {
     }
 
     return (
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
+            <StatusBar backgroundColor="#3878A6" barStyle="light-content" />
             <View style={styles.logoView}>
                 <Logo />
             </View>
@@ -23,7 +24,7 @@ export default function HomeScreen({ navigation }) {
                 onPress={sair}
                 title="SAIR"
             />
-        </SafeAreaView>
+        </View>
     );
 }
 
@@ -32,10 +33,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#6BBAF2',
         flex: 1,
+        justifyContent: 'center',
     },
     logoView: {
         marginBottom: 10,
-        marginTop: 50,
     },
     texto: {
         color: '#FFF',
